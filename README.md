@@ -21,19 +21,7 @@ This project demonstrates complete **CRUD operations** with a clean UI and layer
 
 ## 🖼️ Screenshots
 
-> 📌 Add your screenshots inside a folder named `screenshots/`
-
-### 🔹 Home Page
-![Home](screenshots/home.png)
-
-### 🔹 Add Student
-![Add Student](screenshots/add.png)
-
-### 🔹 Student List
-![Student List](screenshots/list.png)
-
-### 🔹 Update Student
-![Update Student](screenshots/update.png)
+![Home](screenshots/image.png)
 
 ---
 
@@ -42,18 +30,15 @@ This project demonstrates complete **CRUD operations** with a clean UI and layer
 ### 🔹 Backend
 - Java  
 - Spring Boot  
-- JDBC (No Hibernate)  
+- JDBC
 - Maven  
 
 ### 🔹 Frontend
 - HTML  
 - CSS (Bootstrap + Custom)  
-- JavaScript (Fetch API)  
+- JavaScript
 
 ### 🔹 Database
 - PostgreSQL  
 - DBeaver  
 
----
-
-## 📁 Project Structure
