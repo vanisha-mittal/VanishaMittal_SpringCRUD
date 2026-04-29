@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management</title>
+</head>
+<body>
+
+<h1>Student Management System</h1>
+
+<h3>Add Student</h3>
+<input type="text" id="name" placeholder="Name">
+<input type="text" id="email" placeholder="Email">
+<button onclick="addStudent()">Add</button>
+
+<h3>Students List</h3>
+<ul id="studentList"></ul>
+
+<script>
+    const API = "http://localhost:8080/students";
+
+    // Fetch students
+    function loadStudents() {
+        fetch(API)
+            .then(res => res.json())
+            .then(data => {
+                const list = document.getElementById("studentList");
+                list.innerHTML = "";
+
+                data.forEach(s => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `${s.name} - ${s.email}
+                        <button onclick="deleteStudent(${s.id})">Delete</button>`;
+                    list.appendChild(li);
+                });
+            });
+    }
+
+    // Add student
+    function addStudent() {
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+
+        fetch(API, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, email })
+        }).then(() => {
+            loadStudents();
+        });
+    }
+
+    // Delete student
+    function deleteStudent(id) {
+        fetch(`${API}/${id}`, {
+            method: "DELETE"
+        }).then(() => {
+            loadStudents();
+        });
+    }
+
+    // Load on start
+    window.onload = loadStudents;
+</script>
+
+</body>
+</html>
